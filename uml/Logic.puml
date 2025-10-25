@@ -1,0 +1,20 @@
+@startuml
+
+package Logic {
+class InventoryService {
+    + InventoryService()
+    + AddProduct(name:string, quantity:int, price:decimal) : Product
+    + GetProducts() : List<Product>
+    + UpdateProduct(id:int, newName:string, newQuantity:int, newPrice:decimal) : bool
+    + DeleteProduct(id:int) : bool
+}
+class Product {
+    + <<required>> Id : int <<get>> <<set>>
+    + <<required>> Name : string <<get>> <<set>>
+    + <<required>> Quantity : int <<get>> <<set>>
+    + <<required>> Price : decimal <<get>> <<set>>
+}
+InventoryService *-- Product
+}
+
+@enduml
